@@ -2,7 +2,7 @@
 
 <head>
 	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
-	<title>Basic initialization</title>
+	<title>scheduler</title>
 	<link rel="stylesheet" href="https://cdn.dhtmlx.com/scheduler/edge/dhtmlxscheduler.css">
 	<script src="https://cdn.dhtmlx.com/scheduler/edge/dhtmlxscheduler.js"></script>
 
@@ -16,11 +16,46 @@
 		}
 	</style>
 	<script>
+		function readTextFile(file, callback) {
+    var rawFile = new XMLHttpRequest();
+    rawFile.overrideMimeType("application/json");
+    rawFile.open("GET", file, true);
+    rawFile.onreadystatechange = function() {
+        if (rawFile.readyState === 4 && rawFile.status == "200") {
+            callback(rawFile.responseText);
+        }
+    }
+    rawFile.send(null);
+}
+
+const subjects = require('../subjects.json');
+
 		function init() {
 			scheduler.config.xml_date = "%Y-%m-%d %H:%i";
 			scheduler.init("scheduler_here", new Date(2018, 8, 20), "month");
 			// enables the dynamic loading
 			scheduler.setLoadMode("day");
+
+			readTextFile("../subject.json", function(text){
+    	var data = JSON.parse(text);
+		});
+
+	
+
+			var subject = [
+    { key: 1, label: 'free time'},
+    { key: 2, label: 'Subject 1' },
+    { key: 3, label: 'Subject 2' }
+];
+ 
+scheduler.locale.labels.section_select = 'Subject';
+ 
+scheduler.config.lightbox.sections = [
+    
+    { name:"select", height:40, map_to:"type", type:"select", options:subject},
+	{ name:"Details", height:50, map_to:"text", type:"textarea", focus:true },
+    { name:"time", height:72, type:"time", map_to:"auto"}
+];
 
 			// load data from backend
 			scheduler.load("/data", "json");
