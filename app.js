@@ -7,6 +7,7 @@ const app = express();
 const port = 3000;
 const planner = require('./planner.js');
 const router = express.Router();
+const mustache = require('mustache-express');
 
 async function main() {
     /**
@@ -36,6 +37,9 @@ async function init(client) {
 	app.use(express.static(path.join(__dirname, 'public')));
 	app.use(bodyParser.json());
 	app.use(bodyParser.urlencoded({ extended: true })); //extended:true to encode objects and arrays  https://github.com/expressjs/body-parser#bodyparserurlencodedoptions
+
+	app.engine('mustache', mustache());
+	app.set('view engine', 'mustache');
 
 	const db = client.db('eventList')
 	const events = db.collection('events')
@@ -102,7 +106,11 @@ async function init(client) {
 	});
 
 	app.post('/planner', planner.send_message);
+
+	
 };
+
+app.get('/', planner.landing_page);
 
 // Binds listens for connections on the specified host and port. This method is identical to Node’s http.Server.listen().
 app.listen(port, () => {
