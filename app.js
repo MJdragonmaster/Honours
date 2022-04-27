@@ -5,6 +5,8 @@ const path = require('path');
 const bodyParser = require("body-parser");
 const app = express();
 const port = 3000;
+const planner = require('./planner.js');
+const router = express.Router();
 
 async function main() {
     /**
@@ -98,6 +100,8 @@ async function init(client) {
 		} else
 			res.send("Not supported operation");
 	});
+
+	app.post('/planner', planner.send_message);
 };
 
 // Binds listens for connections on the specified host and port. This method is identical to Node’s http.Server.listen().
