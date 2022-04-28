@@ -5,10 +5,10 @@ const path = require('path');
 const bodyParser = require("body-parser");
 const app = express();
 const port = 3000;
-const planner = require('./planner.js');
+const planner = require('./controllers/planner.js');
 const router = express.Router();
 const mustache = require('mustache-express');
-const subjectDAO = require('./subject.js')
+const subjectDAO = require('./models/subject.js')
 
 async function main() {
     /**
