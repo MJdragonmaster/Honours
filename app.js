@@ -108,6 +108,18 @@ async function init(client) {
 
 	app.post('/planner', planner.send_message);
 
+	app.use(function(req, res) {
+		res.status(404);
+		res.type('text/plain');
+		res.send('404 Not found.');
+	   })
+	
+	app.use(function(err, req, res, next) {
+		  res.status(500);
+		  res.type('text/plain');
+		  res.send('Internal Server Error.');
+		 })
+
 	
 };
 
