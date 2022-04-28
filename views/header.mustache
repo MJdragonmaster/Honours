@@ -44,8 +44,14 @@ const subjects = require('../subjects.json');
 
 			var subject = [
 				{{#entries}}
-    			{ key: {{key}}, label: '{{name}}'},
+    				{ key: {{key}}, label: '{{name}}'},
 				{{/entries}}
+
+				{{^entries}}
+					{ key: 1, label: 'free time'},
+    				{ key: 2, label: 'Subject 1' },
+    				{ key: 3, label: 'Subject 2' }
+ 				{{/entries}}
 ];
  
 scheduler.locale.labels.section_select = 'Subject';
