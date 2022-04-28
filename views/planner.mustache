@@ -8,6 +8,12 @@
 
 <body onload="init();">
 
+{{#entries}}
+
+<h1>{{key}} - {{name}}</h1>
+
+{{/entries}}
+
 <form action="/planner" method="post">
 <input type="submit" value="Planner"></input>
 </form>
