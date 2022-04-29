@@ -106,13 +106,11 @@ async function init(client) {
 			res.send("Not supported operation");
 	});
 
+	app.post('/delete', planner.delete);
 	app.post('/planner', planner.send_message);
+	
 
-	app.use(function(req, res) {
-		res.status(404);
-		res.type('text/plain');
-		res.send('404 Not found.');
-	   })
+	
 	
 	app.use(function(err, req, res, next) {
 		  res.status(500);

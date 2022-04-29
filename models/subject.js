@@ -37,7 +37,7 @@ class subject {
                         removeEntries(id) {
                                 this.db.remove({ _id: id}, {}, function(err, docsRem) {
                                     if (err) {
-                                        console.log('error deleting document' + subjectID);
+                                        console.log('error deleting document' + _id);
                                     } else {
                                         console.log(docsRem, 'document(s) removed from the database');
                                     }
@@ -61,6 +61,21 @@ class subject {
                                 keys=keys++;
                         
                                 }
- }
+
+                                add_entry(name){
+                                    var entry= {
+                                        key: keys,
+                                        name: name
+                                    }
+                                    this.db.insert(entry, function(err, doc) {
+                                        if (err) {
+                                        console.log('Error inserting document', name);
+                                        } else {
+                                        console.log('document inserted into the database', doc);
+                                        }
+                                        })
+                                        } 
+}
+ 
 
  module.exports = subject;
