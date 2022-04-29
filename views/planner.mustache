@@ -8,22 +8,18 @@
 
 <body onload="init();">
 
-{{#entries}}
+<div class="navigation">
 
-<h1>{{key}} - {{name}}</h1>
-
-{{/entries}}
-{{^entries}}
-	<h1>No subjects detected. Using default subjects until a new one is added</h1> 
- {{/entries}}
-
+<div class="left">
  <h2> Add Subject</h2>
 
 <form action="/planner" method="post">
 <input type="text" required name="name" placeholder="Enter New Subject"></input>
 <input type="submit" value="Enter Subject"></input>
-</form></br>
+</form>
+</div>
 
+ <div class="right">
 <h2> Remove Subject</h2>
 
 <form method="post" action="delete">
@@ -37,8 +33,10 @@
 <input type="submit" value="Remove Subject"></input>
 
 </form>
+</div>
+</div>
 
-	<div id="scheduler_here" class="dhx_cal_container" style='width:100%; height:100%;'>
+	<div id="scheduler_here" class="dhx_cal_container" style='width:100%; height:90%;'>
 		<div class="dhx_cal_navline">
 			<div class="dhx_cal_prev_button">&nbsp;</div>
 			<div class="dhx_cal_next_button">&nbsp;</div>
