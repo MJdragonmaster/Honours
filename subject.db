@@ -1,2 +1,10 @@
-{"key":1,"name":"Maths","_id":"7CVn8AyZNP2PbRA9"}
-{"key":2,"name":"English","_id":"9pKAT6EudmU8L0se"}
+{"key":0,"name":"Maths","_id":"7CVn8AyZNP2PbRA9"}
+{"key":0,"name":"English","_id":"9pKAT6EudmU8L0se"}
+{"key":0,"name":"Music","_id":"pC0ggP0YyRJGqKFK"}
+{"key":0,"name":"Art","_id":"zS2OpxnREPKhjOJh"}
+{"$$deleted":true,"_id":"pC0ggP0YyRJGqKFK"}
+{"$$deleted":true,"_id":"zS2OpxnREPKhjOJh"}
+{"$$deleted":true,"_id":"9pKAT6EudmU8L0se"}
+{"$$deleted":true,"_id":"7CVn8AyZNP2PbRA9"}
+{"key":0,"name":"Maths","_id":"JCbU5B3UNiknz0ab"}
+{"key":0,"name":"English","_id":"yjSiYcwTCvfxlP4m"}
